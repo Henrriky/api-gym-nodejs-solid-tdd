@@ -65,6 +65,7 @@ save-exact=true
   - `npx prisma deploy` -> Não compara, apenas pega todas as migrations geradas e roda elas no banco de dados.
 - Dependencias de produção
   - `npm i @prisma/client`
+- Caso estivessemos criando uma coluna e já existissem dados no banco nós poderiamos definir a coluna como opcional ou definir o valor como branco
 
 # Fundamentos do docker
 
