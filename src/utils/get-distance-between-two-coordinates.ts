@@ -7,8 +7,6 @@ export function getDistanceBetweenCoordinates(
   from: Coordinate,
   to: Coordinate
 ) {
-  console.log(from)
-  console.log(to)
   if (from.latitude === to.latitude && from.longitude === to.longitude) {
     return 0
   }
