@@ -50,7 +50,7 @@ describe('Check in Use Case', () => {
     const twentyOneMinutesInMs = 1000 * 60 * 21
 
     vi.advanceTimersByTime(twentyOneMinutesInMs)
-
+    
     await expect(() => 
       sut.execute({ checkInId: createdCheckIn.id })
     ).rejects.toBeInstanceOf(LateCheckInValidationError)
