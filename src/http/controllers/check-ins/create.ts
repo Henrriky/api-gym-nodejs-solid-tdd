@@ -8,6 +8,7 @@ import { MaxNumbersOfCheckInsError } from '@/use-cases/errors/max-numbers-of-che
 
 export async function create (request: FastifyRequest, reply: FastifyReply) {
 
+
   const createCheckInParamsSchema = z.object({
     gymId: z.string().uuid()
   })
@@ -21,9 +22,8 @@ export async function create (request: FastifyRequest, reply: FastifyReply) {
     }), 
   })
 
-
   const { latitude, longitude } = createCheckInBodySchema.parse(request.body)
-  const { gymId } = createCheckInParamsSchema.parse(request.query)
+  const { gymId } = createCheckInParamsSchema.parse(request.params)
   const { sub: userId } = request.user
 
   try {

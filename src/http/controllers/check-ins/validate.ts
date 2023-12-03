@@ -1,9 +1,6 @@
 import { z } from 'zod'
 import { FastifyRequest, FastifyReply } from 'fastify'
-import { makeCheckInUseCase } from '@/use-cases/factories/make-check-in-use-case'
 import { ResourceNotFoundError } from '@/use-cases/errors/resource-not-found-error'
-import { MaxDistanceError } from '@/use-cases/errors/max-distance-error'
-import { MaxNumbersOfCheckInsError } from '@/use-cases/errors/max-numbers-of-check-ins-error'
 import { makeValidateCheckInUseCase } from '@/use-cases/factories/make-validate-check-in-use-case'
 
 
@@ -13,7 +10,7 @@ export async function validate (request: FastifyRequest, reply: FastifyReply) {
     checkInId: z.string().uuid()
   })
 
-  const { checkInId } = validateCheckInParamsSchema.parse(request.query)
+  const { checkInId } = validateCheckInParamsSchema.parse(request.params)
 
   try {
     const validateCheckInUseCase = makeValidateCheckInUseCase();
