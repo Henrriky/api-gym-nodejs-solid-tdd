@@ -1,18 +1,18 @@
 name: Run Unit Tests
 
-on: [push] # Toda vez que for realizad um push será realizado a sequencia de jobs abaixo
+on: [push]
 
 jobs:
   run-unit-tests: 
     name: Run Unit Tests
     runs-on: ubuntu-latest
-    # etapas para rodar aplicação
     steps:
-      - uses: actions/checkout@v3 # Baixa o código dentro da máquina
-      - uses: action/setup-node@v3
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
         with:
           node-version: 18
           cache: 'npm'
-      - run: npm ci # run serve para rodar comando no terminal, npm ci vai instalar as dependencias
-      - run: npm run test # executar os testes unitarios
+      - run: npm ci 
+      - run: npm run test
 
